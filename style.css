@@ -1,3 +1,8 @@
+
+
+
+/* all pages / global */ 
+
 header{
     background: url(central_park.jpg) 0 -400px no-repeat;   /* place image as background */
     background-size: 1900px;
@@ -47,8 +52,8 @@ header{
                      }
                  
                  main{
-                     height:400px; /* this is going ot give height to the page so it will give a better sense of how the page could look like*/ 
-
+                    /* height:400px; */ /* this is going ot give height to the page so it will give a better sense of how the page could look like*/ 
+                    margin: 50px
                  }
              
              main h1{
@@ -62,3 +67,57 @@ header{
              padding-top: 20px;
              color:rgb (211, 218, 240);
          }  
+
+
+/* Page 2 Styling */ 
+
+table {
+    margin-top: 35px; 
+
+}
+
+    /* group selector */
+    table, caption, th, td {
+        border: 2px dash #000;
+
+    }
+
+        th,td {
+            width: 150px; 
+            height: 35px;
+            text-align: center;
+        }
+
+            caption {
+                text-transform: uppercase;
+                font-weight: 600;
+                height: 40px;
+                padding-top: 15px;
+                color: #753a30;
+            }   
+
+
+/* Page 3 Styling */
+
+label {
+    display:block;
+    margin: 15px 0 0 0;
+}
+
+            input {
+                 width:300px
+            }
+
+                input[type="radio"] {
+                    width: 25px;
+                }
+
+                    textarea{
+                        width: 300px;
+                    }
+
+                        input[type="submit"] {
+                            display:block;
+                            margin: 20px 0 10px 0; 
+                            width: 100px; 
+                        }
