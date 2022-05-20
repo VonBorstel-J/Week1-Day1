@@ -60,6 +60,12 @@ header{
                  color: rgb(129, 141, 179);
                  font-family: arial;
              }
+
+             main #album #photo img {
+                 width: 400px;
+             }
+
+
          footer{
              height: 40px; 
              background-color: rgb(129, 141, 179);
