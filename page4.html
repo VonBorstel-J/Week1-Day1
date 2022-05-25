@@ -20,68 +20,146 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="page2.html">About</a></li>
-                <li><a href="page4.html">Gallery</a></li>
+                <li class="active"><a href="page4.html">Gallery</a></li>
                 <li><a href="page3.html">Contact</a></li>
             </ul>
     </nav> <!-- this will end the navigation tabs area-->
 
-<main>
-    <h1>My Fourth Heading </h1>
-    <p>My Fourth Paragraph</p>
+
+        <!-- Main content area -->
+        <main>
+            <h1>My Fourth Heading</h1>
+            <p>My Fourth Paragraph</p>
+            <ul id="album">
+                <!--<li id="photo">
+                    <img src="images/Gallery1.jpg">
+                    <caption> Nightly reads </caption>
+                </li>
+
+                <li id="photo">
+                    <img src="images/Gallery2.jpg">
+                    <caption> Nightly reads </caption>
+
+                </li>
+
+                <li id="photo">
+                    <img src="images/Gallery3.jpg">
+                    <caption> Nightly reads </caption>
+
+                </li>
+
+                <li id="photo">
+                    <img src="images/Gallery4.jpg">
+                    <caption> Nightly reads </caption>
+
+                </li>
+
+                <li id="photo">
+                    <img src="images/Gallery5.jpg">
+                    <caption> Nightly reads </caption>
+
+                </li> 
+
+                <li id="photo">
+                    <img src="images/Gallery6.jpg">
+                    <caption> Nightly reads </caption>
+
+                </li>
+
+                <li id="photo">
+                    <img src="images/Gallery7.jpg">
+                    <caption> Nightly reads </caption>
+
+                </li>
+
+                <li id="photo">
+                    <img src="images/Gallery8.jpg">
+                    <caption> Nightly reads </caption>
+
+                </li>
+
+                <li id="photo">
+                    <img src="images/Gallery9.jpg">
+                    <caption> Nightly reads </caption>
+
+                </li>
+
+                <li id="photo">
+                    <img src="images/Gallery10.jpg">
+                    <caption> Nightly reads </caption>
+
+                </li>-->
+
+            </ul>
+        </main>
+    
+        <div id="img1">
+            <div class="image-container">
+              <img src="images/Gallery1.jpg" />
+              <div class="image-caption">
+                <h1>coding is love</h1>
+                <p>para description about this picture.</p>
+              </div>
+            </div>
+          </div>
+
+    <!-- Footer information -->
+
+    <footer>&copy; Copyright 2022  My Website Name</footer>
+
+</div>
+    <!-- End Container -->
+
+
+
+     <!-- Javascript for gallery -->
+     <script>
+//Creating a script for the partners images to be pulled from 
+function partnersGallery() {
         
-    <ul id="album">
-        <!--<li id="photo"><img src="images/winterland1.jpg"></li>
-        <li id="photo"><img src="images/winterland2.jpg"></li>
-        <li id="photo"><img src="images/winterland3.jpg"></li>
-        <li id="photo"><img src="images/winterland4.jpg"></li>
-        <li id="photo"><img src="images/winterland5.jpg"></li>
-        <li id="photo"><img src="images/winterland6.jpg"></li>-->
-     
-    </ul>
-
-
-
-            
-
-   
-
-
-</main> <!-- this ends all of the main content that you would typically use when navigating the website-->
-
-<!-- footer information typically copyright-->
-
-<footer>&copy; Copyright 2020 </footer>
-
-
-</div>  
-<!-- end of the div container finishing off the website content-->
-
-<script>
         var photos = []; //Declaring an empty array to store image element 
         var fileNames = []; //Declaring an empty element to store image file names 
         var imageList = []; //Declare an emplty array to store html list that contain an image
         var image; //Declaring an empty variable to store the assembled image list codes
         var openList = "<li id='photo'>"; //Picking the variable to conatin open list tag
         var closeList = "</li>"; //Picking the variable to close the list tag
-
+        var titleList = [];
+        var title;
+        var photoname = ["Gallery1", "Gallery2", "Gallery3","Gallery4","Gallery5", "Gallery6", "Gallery7", "Gallery8", "Gallery9", "Gallery10"];
+        var openCaptionTag = "<div class='image-caption'>"
+        var closeCaptionTag = "</div>"
+        var openList1 = "<li id='photo"
+        var openList2 = "'>"; //Declare a variable to contain open list tag
+        var closeList = "</li>"; //Declare a variable to contain an close list tag
+        var titleOpenList="<p class='title'>";
+        var titleCloseList="</p>"
+        var openDesc = "<div class='description'>";
+        var closeDesc = "</div>";
+        var descText = [
+             "A beautiful winter scenery in the morning",
+            "After an overnight snowstorm",
+             "Snowy drive on the road",
+            "Snow day in the country",
+     "Burrrrr...a typical cold in January",
+    "Cold, snowy but sunny and beautiful"
+  ]
 
 //Create a loop to create 6 images starting with index of 0 
 
-for(var i=0; i<6; i++) {
-        fileNames.push("winterland"+(i+1)); //Creating an image file name and store in the array
-        photos.push("<img src= images/"+fileNames[i]+".jpg>"); //Assemble file name into image element and store in an array 
+for(var i=0; i<10; i++) {
+        fileNames.push("Gallery"+(i+1)); //Creating an image file name and store in the array
+        photos.push("<img src= images/"+fileNames[i]+ ".jpg>"); //Assemble file name into image element and store in an array 
         image = openList + photos[i] + closeList; //Assemble image element from array with list elements and store in a variable
+        image = openList1 + (i+1) + openList2 + photos[i] + "<br>" +
+        titleOpenList + captionText[i] + titleCloseList + openDesc + descText[i] + closeDesc + closeList;
         imageList.push(image); //Store(push) the assembled list codes into an array
 }
 
 //Display all six image codes stored in the array 
 document.getElementById("album").innerHTML = imageList;
+    }
+        partnersGallery();
 
-
-
-</script>
-
-
-
+     </script>
 </body>
 </html>
