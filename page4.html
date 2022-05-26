@@ -25,141 +25,61 @@
             </ul>
     </nav> <!-- this will end the navigation tabs area-->
 
-
         <!-- Main content area -->
         <main>
             <h1>My Fourth Heading</h1>
             <p>My Fourth Paragraph</p>
-            <ul id="album">
-                <!--<li id="photo">
-                    <img src="images/Gallery1.jpg">
-                    <caption> Nightly reads </caption>
-                </li>
+            
+            <!--<img id="mainImage" heigh="500px" width="540px"
+                src="/images/Gallery1.jpg" style="border:3px solid grey"/>-->
 
-                <li id="photo">
-                    <img src="images/Gallery2.jpg">
-                    <caption> Nightly reads </caption>
+                <br />
 
-                </li>
+            <!--<div  id="gallery" onclick="changeImageOnClick(event)">
+                    <img class="imgStyle" src="/images/Gallery1.jpg" />
+                    <img class="imgStyle" src="/images/Gallery2.jpg" />
+                    <img class="imgStyle" src="/images/Gallery3.jpg" />
+                    <img class="imgStyle" src="/images/Gallery4.jpg" />
+                    <img class="imgStyle" src="/images/Gallery5.jpg" />
+                    <img class="imgStyle" src="/images/Gallery6.jpg" />
+                    <img class="imgStyle" src="/images/Gallery7.jpg" />
+                    <img class="imgStyle" src="/images/Gallery8.jpg" />
+                    <img class="imgStyle" src="/images/Gallery9.jpg" />
+                    <img class="imgStyle" src="/images/Gallery10.jpg" />
+            </div>--> 
 
-                <li id="photo">
-                    <img src="images/Gallery3.jpg">
-                    <caption> Nightly reads </caption>
+<img src="images/Gallery1.jpg" id="img1" >
 
-                </li>
+<!-- Footer information -->
 
-                <li id="photo">
-                    <img src="images/Gallery4.jpg">
-                    <caption> Nightly reads </caption>
-
-                </li>
-
-                <li id="photo">
-                    <img src="images/Gallery5.jpg">
-                    <caption> Nightly reads </caption>
-
-                </li> 
-
-                <li id="photo">
-                    <img src="images/Gallery6.jpg">
-                    <caption> Nightly reads </caption>
-
-                </li>
-
-                <li id="photo">
-                    <img src="images/Gallery7.jpg">
-                    <caption> Nightly reads </caption>
-
-                </li>
-
-                <li id="photo">
-                    <img src="images/Gallery8.jpg">
-                    <caption> Nightly reads </caption>
-
-                </li>
-
-                <li id="photo">
-                    <img src="images/Gallery9.jpg">
-                    <caption> Nightly reads </caption>
-
-                </li>
-
-                <li id="photo">
-                    <img src="images/Gallery10.jpg">
-                    <caption> Nightly reads </caption>
-
-                </li>-->
-
-            </ul>
-        </main>
-    
-        <div id="img1">
-            <div class="image-container">
-              <img src="images/Gallery1.jpg" />
-              <div class="image-caption">
-                <h1>coding is love</h1>
-                <p>para description about this picture.</p>
-              </div>
-            </div>
-          </div>
-
-    <!-- Footer information -->
-
-    <footer>&copy; Copyright 2022  My Website Name</footer>
-
-</div>
-    <!-- End Container -->
+<footer>&copy; Copyright 2022  My Website Name</footer>
 
 
+<!-- End Container -->
+</div> 
+</main>
 
-     <!-- Javascript for gallery -->
-     <script>
-//Creating a script for the partners images to be pulled from 
-function partnersGallery() {
-        
-        var photos = []; //Declaring an empty array to store image element 
-        var fileNames = []; //Declaring an empty element to store image file names 
-        var imageList = []; //Declare an emplty array to store html list that contain an image
-        var image; //Declaring an empty variable to store the assembled image list codes
-        var openList = "<li id='photo'>"; //Picking the variable to conatin open list tag
-        var closeList = "</li>"; //Picking the variable to close the list tag
-        var titleList = [];
-        var title;
-        var photoname = ["Gallery1", "Gallery2", "Gallery3","Gallery4","Gallery5", "Gallery6", "Gallery7", "Gallery8", "Gallery9", "Gallery10"];
-        var openCaptionTag = "<div class='image-caption'>"
-        var closeCaptionTag = "</div>"
-        var openList1 = "<li id='photo"
-        var openList2 = "'>"; //Declare a variable to contain open list tag
-        var closeList = "</li>"; //Declare a variable to contain an close list tag
-        var titleOpenList="<p class='title'>";
-        var titleCloseList="</p>"
-        var openDesc = "<div class='description'>";
-        var closeDesc = "</div>";
-        var descText = [
-             "A beautiful winter scenery in the morning",
-            "After an overnight snowstorm",
-             "Snowy drive on the road",
-            "Snow day in the country",
-     "Burrrrr...a typical cold in January",
-    "Cold, snowy but sunny and beautiful"
-  ]
-
-//Create a loop to create 6 images starting with index of 0 
-
-for(var i=0; i<10; i++) {
-        fileNames.push("Gallery"+(i+1)); //Creating an image file name and store in the array
-        photos.push("<img src= images/"+fileNames[i]+ ".jpg>"); //Assemble file name into image element and store in an array 
-        image = openList + photos[i] + closeList; //Assemble image element from array with list elements and store in a variable
-        image = openList1 + (i+1) + openList2 + photos[i] + "<br>" +
-        titleOpenList + captionText[i] + titleCloseList + openDesc + descText[i] + closeDesc + closeList;
-        imageList.push(image); //Store(push) the assembled list codes into an array
-}
-
-//Display all six image codes stored in the array 
-document.getElementById("album").innerHTML = imageList;
+<!-- Javascript for gallery -->
+<script>
+    //Creating a script for the partners images to be pulled from 
+    var images = new Array ("images/Gallery1.jpg", "images/Gallery2.jpg", "images/Gallery3.jpg","images/Gallery4.jpg","images/Gallery5.jpg", "images/Gallery6.jpg", "images/Gallery7.jpg", "images/Gallery8.jpg", "images/Gallery9.jpg", "images/Gallery10.jpg")
+    var image_count = 0;
+    var descText = []
+    function rollover (image_id, millisecs) {
+        var image = document.getElementById(image_id);
+        image.src = images[image_count];
+        image_count++;
+        if (image_count >= images.length) {
+        image_count = 0;
     }
-        partnersGallery();
+    setTimeout("rollover('" + image_id + "'," + millisecs + ");",millisecs);
+    }
 
+    rollover("img1",3300);
+
+
+
+ 
      </script>
 </body>
 </html>
