@@ -7,7 +7,7 @@
     <title>My First Web Page</title>
     <!-- Embedding a style method-->
     <link rel="stylesheet" href="style.css">
-
+    <script  defer src="app.js" ></script>
 </head>
 <body>
 <!--This div container is used to wrap all of the text and tabs together-->
@@ -26,15 +26,13 @@
     </nav> <!-- this will end the navigation tabs area-->
 
         <!-- Main content area -->
-        <main>
-            <h1>My Fourth Heading</h1>
-            <p>My Fourth Paragraph</p>
+         <main>
+            <h1>Calvin & Hobbes</h1>
             
             <!--<img id="mainImage" heigh="500px" width="540px"
                 src="/images/Gallery1.jpg" style="border:3px solid grey"/>-->
 
                 <br />
-
             <!--<div  id="gallery" onclick="changeImageOnClick(event)">
                     <img class="imgStyle" src="/images/Gallery1.jpg" />
                     <img class="imgStyle" src="/images/Gallery2.jpg" />
@@ -48,7 +46,27 @@
                     <img class="imgStyle" src="/images/Gallery10.jpg" />
             </div>--> 
 
-<img src="images/Gallery1.jpg" id="img1" >
+<!-- creating the image gallery for javascript-->
+<div>
+<div id="gallery"></div>
+
+<!--popup image-->
+<div id="popup">
+    <img src="" alt="" id="selectedImage">
+</div>
+</div>
+
+<div class="infobox" id="infobox">
+    <div class="infobox-header">
+        <div class="title"></div>
+        <button class="close-button">&times;</button>
+    </div> 
+     <div class="infobox-body">
+
+    </div>
+</div>
+
+
 
 <!-- Footer information -->
 
@@ -60,26 +78,6 @@
 </main>
 
 <!-- Javascript for gallery -->
-<script>
-    //Creating a script for the partners images to be pulled from 
-    var images = new Array ("images/Gallery1.jpg", "images/Gallery2.jpg", "images/Gallery3.jpg","images/Gallery4.jpg","images/Gallery5.jpg", "images/Gallery6.jpg", "images/Gallery7.jpg", "images/Gallery8.jpg", "images/Gallery9.jpg", "images/Gallery10.jpg")
-    var image_count = 0;
-    var descText = []
-    function rollover (image_id, millisecs) {
-        var image = document.getElementById(image_id);
-        image.src = images[image_count];
-        image_count++;
-        if (image_count >= images.length) {
-        image_count = 0;
-    }
-    setTimeout("rollover('" + image_id + "'," + millisecs + ");",millisecs);
-    }
 
-    rollover("img1",3300);
-
-
-
- 
-     </script>
 </body>
 </html>
